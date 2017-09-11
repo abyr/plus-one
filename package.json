@@ -1,0 +1,16 @@
+{
+  "name": "plus-one",
+  "version": "0.0.0",
+  "description": "Plus one. Collect items",
+  "main": "server.js",
+  "repository": "",
+  "author": "Aleksander Denisenko <abyrcheg@gmail.com>",
+  "dependencies": {
+    "async": "~0.2.8",
+    "express": "~3.2.4",
+    "mongoose": "^4.1.3"
+  },
+  "devDependencies": {
+    "bower": "^1.8.0"
+  }
+}

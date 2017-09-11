@@ -1,0 +1,29 @@
+.body {
+    padding: 10px;
+}
+.status-bar {
+    padding-left: 10px;
+    position: fixed;
+    height: 24px;
+    background-color: #ebebeb;
+    width: 100%;
+    bottom: 0;
+}
+.item-block {
+    margin: 10px 0;
+    background: #eee;
+    padding: 5px;
+    border: solid #cecece 1px;
+    line-height: 24px;
+}
+.item-name {
+    font-size: 1.3em;
+    display: inline-block;
+}
+.item-controls {
+    display: inline-block;
+    position: absolute;
+    right: 20px;
+    height: 24px;
+    line-height: 24px;
+}

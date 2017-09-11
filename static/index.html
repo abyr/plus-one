@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en" ng-app="App">
+<head>
+    <title>Plus one</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/bootstrap-responsive.min.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="shortcut icon" href="favicon.ico" />
+</head>
+<body>
+    <div class="body">
+        <div ng-controller="AuthController as auth" >
+            <div ng-show="!auth.signedIn">
+                <span id="googleSignIn" >
+                    <span id="signInButton"></span> Loading...
+                </span>
+            </div>
+            <div ng-show="auth.signedIn">
+                {{auth.user.name}}
+            </div>
+        </div>
+
+        <h1>Your &plusmn; List</h1>
+        <div ng-controller="ItemsController as Items">
+            <div class="item-block" ng-repeat="item in Items.items">
+                <span class="item-name">{{item.name}}: <b>{{item.count}}</b></span>
+                <span class="item-controls">
+                    <span class="btn" ng-click="Items.minus($index)">-1</span>
+                    <span class="btn" ng-click="Items.plus($index)">+1</span>
+                    <span class="btn" ng-click="Items.zero($index)">0</span>
+                    <span class="btn btn-danger" ng-click="Items.delete($index)">x</span>
+                </span>
+            </div>
+
+            <h2>Add new item</h2>
+            <form ng-submit="Items.createNew()" >
+                <input type="text" name="name" ng-model="newItem.name" required />
+                <input type="text" name="count" value="0" ng-model="newItem.count" required />
+                <input type="submit" value="Submit" />
+            </form>
+        </div>
+
+    </div>
+
+    <div class="status-bar">Synced</div>
+
+    <script>// <![CDATA[
+        (function() {
+            var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+            po.src = 'https://apis.google.com/js/client:plusone.js?onload=init';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+        })();
+    // ]]></script>
+
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/libs/lodash/lodash.min.js"></script>
+    <script src="/libs/angular/angular.min.js"></script>
+
+    <script src="/js/app.js"></script>
+    <script src="/js/items.js"></script>
+    <script src="/js/auth.js"></script>
+
+</body>
+</html>
